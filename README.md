@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0c5586d40c59474f9214909e824ffd21e7e69161
 # TODO CLI
 
 Todo CLI with Go
@@ -37,4 +41,8 @@ src
 |   └── todo.go                 
 |   └── todo_test.go
 ├── main.go 
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 0c5586d40c59474f9214909e824ffd21e7e69161
