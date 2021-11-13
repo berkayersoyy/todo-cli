@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 0c5586d40c59474f9214909e824ffd21e7e69161
 # TODO CLI
 
 Todo CLI with Go
@@ -17,6 +13,10 @@ go run main.go
 To run todo tests, at the root directory:
 ```
 go test ./todo
+```
+To run cli tests, at the root directory:
+```
+go test ./cli
 ```
 Commands:
 ```
