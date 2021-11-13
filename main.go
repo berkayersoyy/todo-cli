@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 	cli "todo/cli"
 	todo "todo/todo"
 )
@@ -25,12 +24,14 @@ func runProgram() {
 		}
 		switch {
 		case arg == "-h":
-			cs := strings.Join(cli.SetHelpCommandSlice(), "\n")
-			fmt.Println(cs)
+			cli.HelpCommandSlice()
 		case arg == "-v":
 			fmt.Println("0.1")
 		case arg == "-a":
-			todo.AddItem(&ts, &id, in)
+			err := todo.AddItem(&ts, &id, in)
+			if err != nil {
+				fmt.Println(err, "a")
+			}
 		case arg == "-l":
 			ts.PrintItems()
 		case arg == "-c":

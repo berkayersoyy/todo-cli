@@ -3,6 +3,7 @@ package todo
 import (
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 	cli "todo/cli"
 )
@@ -66,10 +67,16 @@ func MarkItemAsCompleted(t *TodoSlice, id string) error {
 	*todo.Completed = true
 	return nil
 }
-func AddItem(t *TodoSlice, id *int, in string) {
+func AddItem(t *TodoSlice, id *int, in string) error {
+	var err error
+	if len(strings.TrimSpace(in)) == 0 {
+		err = fmt.Errorf("Cannot add empty todo")
+		return err
+	}
 	td := Todo{Id: *id, Item: in, Date: time.Now(), Completed: NewFalse()}
 	*t = append(*t, td)
 	*id = *id + 1
+	return err
 }
 func DeleteItem(t *TodoSlice, id string) error {
 	cid, err := strconv.Atoi(id)
@@ -96,7 +103,6 @@ func NewFalse() *bool {
 func CalculateTimeDifference(t time.Time) string {
 	d := time.Now()
 	a := daysBetween(d, t)
-	fmt.Println(a)
 	if a == 0 {
 		return "Today"
 	} else if a > 0 && a < 7 {

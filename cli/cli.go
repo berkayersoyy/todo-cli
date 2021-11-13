@@ -10,9 +10,13 @@ func setCommandSlice() []string {
 	cs := []string{"-h", "-v", "-l", "-c", "-a", "-m", "-d", "-q"}
 	return cs
 }
-func SetHelpCommandSlice() []string {
-	hcs := []string{"todo -h #help", "todo -v #version", "todo -l #list un-completed items", "todo -c #list completed items", "todo -a #add new item 'todo -a [TODO]'", "todo -m #mark as completed 'todo -m [ID]'", "todo -d #delete item 'todo -d [ID]'", "todo -q #exit program"}
-	return hcs
+func HelpCommandSlice() {
+	hcs := []string{"todo -h #help", "todo -v #version", "todo -l #list un-completed items",
+		"todo -c #list completed items", "todo -a #add new item 'todo -a [TODO]'",
+		"todo -m #mark as completed 'todo -m [ID]'",
+		"todo -d #delete item 'todo -d [ID]'", "todo -q #exit program"}
+	cs := strings.Join(hcs, "\n")
+	fmt.Println(cs)
 }
 
 func PrintSkeletonTable() {
