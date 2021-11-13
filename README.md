@@ -37,6 +37,7 @@ todo -q #exit program
 src
 ├── cli
 |   └── cli.go
+|   └── cli_test.go  
 ├── todo  
 |   └── todo.go                 
 |   └── todo_test.go
